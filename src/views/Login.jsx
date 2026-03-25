@@ -1,7 +1,6 @@
 import { useContext, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
 import { useNavigate } from "react-router-dom"
-import { Register } from "./Register"
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -33,12 +32,8 @@ const Login = () => {
     navigate("/")
 }
 
-    handleUser({ email, password })
-    navigate("/")
-    }
-
     const handlePage = (e) => {
-    navigate("/register")
+    navigate("/registro")
     }
 
     return (

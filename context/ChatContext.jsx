@@ -1,5 +1,4 @@
-import { createContext, useContext, useState } from "react"
-import { users as mockUsers } from "../services/mockApi"
+import { createContext, useState } from "react"
 
 const ChatContext = createContext()
 
@@ -64,7 +63,7 @@ const ChatProvider = ({ children }) => {
     const selectedUser = users.find(user => user.id === selectedUserId)
 
     return (
-        <ChatContext.Provider value={{ users, handleSelectedUserId, login, register, logout, handleUser, loggedUser, handleMessages, selectedUser }}>
+        <ChatContext.Provider value={{ handleUser, loggedUser, logout}}>
         {children}
         </ChatContext.Provider>
     )
