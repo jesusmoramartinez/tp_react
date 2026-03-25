@@ -11,5 +11,5 @@ createRoot(document.getElementById('root')).render(
         <ChatProvider>
             <RouterApp />
         </ChatProvider>
-    </StrictMode>,
+    </StrictMode>
 )
