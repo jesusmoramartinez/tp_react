@@ -6,8 +6,7 @@ const ChatContext = createContext()
 const ChatProvider = ({ children }) => {
     const [users, setUsers] = useState(mockUsers)
     const [selectedUserId, setSelectedUserId] = useState(null)
-    const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem("user")) || null
-)
+    const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem("user")) || null)
 
     const handleUser = (user) => {
         setLoggedUser(user)

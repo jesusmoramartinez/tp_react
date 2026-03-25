@@ -28,13 +28,19 @@ const Register = () => {
     const handleChangeConfPassword = (e) => {
     setConfirmpassword(e.target.value)
     }
- 
+
     const handleSubmit = (e) => {
-        e.preventDefault()
-        setError(null)
-        handleUser({name, email, password})
-        navigate("/")
-    }
+    e.preventDefault()
+    setError(null)
+
+    if (name.length < 3) return setError("Nombre inválido")
+    if (!email.includes('@') || !email.includes('.')) return setError("Email inválido")
+    if (password.length < 6) return setError("Contraseña muy corta")
+    if (password !== confirmpassword) return setError("Las contraseñas no coinciden")
+
+    handleUser({ name, email, password })
+    navigate("/")
+}
 
     const handlePage = (e) => {
     navigate("/login")
@@ -76,9 +82,7 @@ const Register = () => {
             />
             {confirmpassword !== password && <p className="error-form">Las contraseñas deben coincidir</p>}
             <button>Registrar</button>
-            {
-                error && <p className="error-form">Error al Registrar</p>
-            }
+            {error && <p className="error-form">{error}</p>}
             <button type="button" onClick={handlePage}>Volver a inicio de sesión</button>
         </form>
     </section>
